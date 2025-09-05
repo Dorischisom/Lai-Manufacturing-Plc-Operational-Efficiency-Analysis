@@ -14,6 +14,12 @@ Lai Manufacturing Plc is a global manufacturing company specializing in industri
 [View Interactive Dashboards and DAX Calculated](Lai_Manufacturing_Company_Analysis/Lai_Manufacturing_Company_Analysis.pbix) 
 
 ## Data Structure Overview
+
+#### Data Architecture:
+- **Original Dataset:** Single table containing all customer, booking, competitor, and channel data
+- **ETL Transformation:** Normalized into 4 relational tables with appropriate keys
+- **Final Structure:** Star schema design optimized for analytical queries
+
 The analysis utilizes a comprehensive manufacturing dataset with 1,000 operational records spanning April-September 2023. The data architecture consists of four normalized tables:
 
 ### Operations_Data
