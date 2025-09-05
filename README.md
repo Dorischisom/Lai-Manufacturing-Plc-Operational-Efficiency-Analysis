@@ -86,6 +86,8 @@ Manufacturing operations analysis reveals significant optimization opportunities
 
 ![Lai_overview](Lai_overview/Lai_overview.png)
 
+![Lai_downtime](Lai_downtime/Lai_downtime.png)
+
 ### Insights Deep Dive
 
 ![Lai_production](Lai_production/Lai_production.png)
