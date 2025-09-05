@@ -16,29 +16,46 @@ Lai Manufacturing Plc is a global manufacturing company specializing in industri
 ## Data Structure Overview
 The analysis utilizes a comprehensive manufacturing dataset with 1,000 operational records spanning April-September 2023. The data architecture consists of four normalized tables:
 
-Operations_Data (Primary)
-├── Operations_ID (PK)
-├── Production_Date
-├── Production_Quantity
-├── Quality_Metrics
-└── Downtime_Duration
+### Operations_Data
 
-Product_Data
-├── Product_ID (PK)
-├── Product_Name
-├── Product_Category
-└── Production_Time
+|Column Name   |Description|
+|--------------|------------|
+|Operations_ID |A unique identifier for each operation or record in the dataset|
+|Product_ID    | Foreign key linking to Product_Data table|
+|Supplier_ID   |Foreign key linking to Supplier_Data table|
+|Employee_ID   |Foreign key linking to Employee_Data table
+|Production_Date|The date on which the operation or production occurred|
+|Production_Quantity|The quantity of the product produced during the operation|
+|Quality_Metrics|Assessment of product quality - "Passed," "Failed," or "In Between" standards|
+|Quantity_in_Stock|The quantity of the product available in stock after the operation|
+|Quantity_Sold|The quantity of the product that has been sold after the operation|
+|Maintenance_Type|Type of maintenance carried out - "Routine Maintenance" or "Repairs"|
+|Downtime_Duration|Duration of downtime experienced during the operation (non-productive time)|
+|Energy_Consumption_Data|Data representing the energy consumed during the operation|
+|Production_Time|The time it took to complete the operation or production|
+|Downtime_Events|The number of downtime events that occurred during the operationDowntime_ReasonReason for downtime - "Material Shortage," "Technical Issues," or "Human Error"|
 
-Employee_Data
-├── Employee_ID (PK)
-├── Employee_Name
-├── Shift_Information
-└── Employee_Rating
+### Product_Data
+|Column Name|Description|
+|-----------|-----------|
+|Product_ID|A unique identifier for each product in the dataset|
+|Product_Name|The name of the product associated with the operation|
+|Product_Category|The category to which the product belongs (Home Appliances or Industrial Machinery)|
 
-Supplier_Data
-├── Supplier_ID (PK)
-├── Supplier_Name
-└── Lead_Time
+### Employee_Data
+|Column Name|Description|
+|-----------|-----------|
+|Employee_ID|A unique identifier for the employee involved in the operation|
+|Employee_Name|The name of the employee responsible for the operation|
+|Shift_Information|The shift during which operations occurred - "Morning," "Afternoon," "Evening," or "Night Shift"|
+|Employee_Rating|Performance assessment of the employee on a scale from 1 to 5|
+
+### Supplier_Data
+|Column Name|Description|
+|-----------|-----------|
+|Supplier_ID|A unique identifier for the supplier associated with the operation|
+|Supplier_Name|The name of the supplier that provided materials or components for production|
+|Lead_Time|The time it takes for the supplier to deliver materials or components to support operations|
 
 ![Lai_ERD](Lai_ERD/Lai_ERD.png)
 
@@ -58,14 +75,14 @@ Power BI, DAX calculations, ETL processes, normalized data modeling Analysis Per
 
 ### Overview of Findings
 
-Manufacturing operations analysis reveals significant optimization opportunities across production, quality control, and supply chain management. While overall production targets are being met with 564K total units produced, critical inefficiencies exist in quality control (20.4% failure rate), inventory management (production significantly exceeds sales), and downtime management (2,519 total downtime hours).
+Manufacturing operations analysis reveals significant optimization opportunities across production, quality control, and supply chain management. While overall production targets are being met with **564K** total units produced, critical inefficiencies exist in quality control **(20.4% failure rate)**, inventory management (production significantly exceeds sales), and downtime management **(2,519 total downtime hours)**.
 
 ### Key Performance Indicators:
 
-- **Production Efficiency:** 564K units produced vs. 279K units in stock
-- **Quality Performance:** 65.4% pass rate, 20.4% failure rate requiring immediate attention
-- **Supply Chain:** Average 5.51-day lead time with significant supplier variability
-- **Downtime Impact:** Peak downtime in July (477 events) indicating seasonal maintenance issues
+- **Production Efficiency:** **564K units** produced vs. **279K units** in stock
+- **Quality Performance:** **65.4%** pass rate, **20.4%** failure rate requiring immediate attention
+- **Supply Chain:** Average **5.51-day** lead time with significant supplier variability
+- **Downtime Impact:** Peak downtime in July **(477 events)** indicating seasonal maintenance issues
 
 ![Lai_overview](Lai_overview/Lai_overview.png)
 
@@ -85,9 +102,9 @@ Quality metrics reveal systemic issues requiring immediate attention. July exper
 
 ##### Critical quality insights:
 
-- Industrial Mixers: 23.7% failure rate (highest)
-- Air Conditioners: 21.6% failure rate
-- Refrigerators: 15.6% failure rate (best performing)
+- **Industrial Mixers:** **23.7%** failure rate (highest)
+- **Air Conditioners:** **21.6%** failure rate
+- **Refrigerators:** **15.6%** failure rate (best performing)
 The inverse relationship between production speed and quality suggests current processes may be optimized for volume at the expense of quality standards.
 
 ![Lai_employee](Lai_employee/Lai_employee.png)
